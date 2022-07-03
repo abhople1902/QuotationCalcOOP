@@ -7,5 +7,9 @@ public class Main {
         b.getCost();
         b.calculateEstimate();
 
+        Flat flat = new flat(1,"Mumbai",3500);
+        flat.getRate();
+        flat.calculateQuotation();
+
     }
 }

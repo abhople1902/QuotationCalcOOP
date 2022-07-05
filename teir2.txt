@@ -1,0 +1,16 @@
+Agra  1  2  3  4  5       
+Nagpur  1  2  3  4  5  
+Nashik  1  2  3  4  5  
+Mangaluru  1  2  3  4  5  
+Coimbatore  1  2  3  4  5  
+Vellore  1  2  3  4  5  
+Chandigarh  1  2  3  4  5  
+Belgaum  1  2  3  4  5  
+Ahmedabad  1  2  3  4  5  
+Jaipur  1  2  3  4  5  
+Indore  1  2  3  4  5  
+
+
+
+
+ //basic machinery    labor cost    material cost    finishing cost    resources(water and electricity)

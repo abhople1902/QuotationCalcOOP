@@ -6,11 +6,11 @@ import java.io.IOException;
 
 public class bunglow {
 
-    int type;
+    String type;
     String city;
     double size;
 
-    bunglow(int type, String city, double size){
+    bunglow(String type, String city,double size){
         this.type = type;
         this.city = city.toLowerCase();
         this.size = size;

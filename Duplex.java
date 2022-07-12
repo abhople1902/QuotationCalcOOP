@@ -14,7 +14,7 @@ import java.io.IOException;
 public class Duplex {
     String cityName;
     int tier;
-    long plotSize;
+    double plotSize;
     BufferedReader in;
     int days = 30;
     String s[];
@@ -23,7 +23,7 @@ public class Duplex {
     double MaterialCost;
     double FinishingCost;
     double ResourcesCost;
-    Duplex(String cityName,int tier,long plotSize,FileReader f){
+    Duplex(String cityName,int tier,double plotSize,FileReader f){
         this.in = new BufferedReader(f);
         this.cityName = cityName;
         this.tier = tier;
@@ -51,6 +51,7 @@ public class Duplex {
     }
     
     void calculatecosts(){
+        extractCosts();
         this.BmachCost = this.BmachCost*this.days;
         this.FinishingCost = this.FinishingCost*this.days;
         this.LabourCost = this.LabourCost*this.days*Double.parseDouble(s[5]);

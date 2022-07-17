@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package com.mycompany.ta2;
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-/**
- *
- * @author DELL
- */
+
+
 public class Duplex {
     String cityName;
     int tier;
@@ -23,14 +15,20 @@ public class Duplex {
     double MaterialCost;
     double FinishingCost;
     double ResourcesCost;
-    Duplex(String cityName,int tier,double plotSize,FileReader f){
-        this.in = new BufferedReader(f);
+
+    double SpecialCosts;
+
+    String scost[];
+    Duplex(String cityName,int tier,double plotSize,File f,String arr){
+        this.in = new BufferedReader(new FileReader(f));
         this.cityName = cityName;
         this.tier = tier;
         this.plotSize = plotSize;
+        this.scost = arr.split(" ");
+        this.SpecialCosts = Double.parseDouble(scost[1]);
     }
     void getInfo(){
-        System.out.println("Ciry Name: " + this.cityName + "\n" + "Tier: " + this.tier + "\n" + "Plot Size" + this.plotSize);
+        System.out.println("City Name: " + this.cityName + "\n" + "Tier: " + this.tier + "\n" + "Plot Size" + this.plotSize);
     }
     String str;
     
@@ -38,7 +36,7 @@ public class Duplex {
         try{
             while((str = in.readLine())!=null){
                 s = str.split("    ");
-                if(s[0].equals(this.cityName) && "Duplex".equals(s[7])){     
+                if(s[0].equals(this.cityName)){
                 this.BmachCost = Double.parseDouble(s[1]);
                 this.FinishingCost = Double.parseDouble(s[2]);
                 this.LabourCost = Double.parseDouble(s[3]);
@@ -57,6 +55,7 @@ public class Duplex {
         this.LabourCost = this.LabourCost*this.days*Double.parseDouble(s[5]);
         this.MaterialCost = this.MaterialCost*this.days*Double.parseDouble(s[6]);
         this.ResourcesCost = this.ResourcesCost*this.days;
+        this.SpecialCosts = this.SpecialCosts*this.days;
 }
     
     long totalEstimate(){
@@ -70,7 +69,8 @@ public class Duplex {
         System.out.println("Total Labour cost: " + this.LabourCost);
         System.out.println("Total Material Cost: " + this.MaterialCost);
         System.out.println("Total resource cost: " + this.ResourcesCost);
-        total = (long) (this.BmachCost+ this.FinishingCost + this.LabourCost + this.MaterialCost + this.ResourcesCost);
+        System.out.println("Special costs: " + this.SpecialCosts);
+        total = (long) (this.BmachCost+ this.FinishingCost + this.LabourCost + this.MaterialCost + this.ResourcesCost + this.SpecialCosts);
         return total;
     }
 }

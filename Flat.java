@@ -10,11 +10,13 @@ public class Flat {
     int tier;
     String city;
     double size;
+    String HouseType;
 
-    Flat(int tier, String city, double size){
+    Flat(int tier, String city, double size, String HouseType){
         this.tier = tier;
         this.city = city.toLowerCase();
         this.size = size;
+        this.HouseType = HouseType;
     }
 
     double MachCost;
@@ -22,13 +24,15 @@ public class Flat {
     double MaterialCost;
     double FinishingCost;
     double ResourcesCost;
+    double SpecialCosts;
     boolean jon = false;
 
     void getRate() throws FileNotFoundException,IOException{
 
-        File f = new File("/Users/abhople/Desktop/database_tier" + tier + ".txt");
-
-        Bufferedreader in = new BufferedReader(new FileReader(f));
+        File f = new File("/Users/abhople/Desktop/QuotationCalcOOP/tier1.txt" + tier + ".txt");
+        File h = new File("/Users/abhople/Desktop/QuotationCalcOOP/HouseType.txt" + tier + ".txt");
+        BufferedReader in1 = new BufferedReader(new FileReader(h));
+        BufferedReader in = new BufferedReader(new FileReader(f));
         String str;
 
 
@@ -44,13 +48,7 @@ public class Flat {
                 jon = true;
                 break;
             }
-            else {
-                try {
-                    throw new CityNotFoundException();
-                } catch (CityNotFoundException e) {
-                    System.out.println(e);
-                }
-            }
+
         }
     }
 
@@ -67,6 +65,7 @@ public class Flat {
         System.out.println("Material cost: Rs. " + MaterialCost*size);
         System.out.println("Finishing cost: Rs. " + FinishingCost*size);
         System.out.println("Resources cost: Rs. " + ResourcesCost*size);
+
     }
 
 }
